@@ -1,0 +1,32 @@
+---
+- name: check package python
+  hosts: localhost
+  gather_facts: no
+  vars:
+    want_to_version: '2.0'
+
+  tasks:
+  - name: check exisiting python version
+    shell: python --version 2>&1 | awk '{print $2}'
+    register: py_ver
+
+  - name: print py ver
+    debug:
+      msg: "{{ py_ver.stdout }}"
+
+  - name: print desired
+    debug:
+      msg: "{{ want_to_version }}"
+
+  - name: check if the installed is less or the desired is less
+    debug:
+      msg: "installed is ({{ py_ver.stdout }}) less, let me upgrade........."
+    when: py_ver.stdout is version(want_to_version, '<=')
+
+
+  - name: check if the installed is less or the desired is less
+    debug:
+            msg: "want to install ({{ want_to_version }}) is less, lets exit :("
+    when: py_ver.stdout is version(want_to_version, '>=')
+    
+...
