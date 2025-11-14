@@ -10,3 +10,11 @@ aws api (boto 3)
 aws CFT (cloud formation template)
 aws cdk -> specfic to aws
 last is Terraform  - opensource - by hashicorp (multi cloud solution)
+
+steps:
+
+instance type
+key pair
+security group
+vpc
+storage
