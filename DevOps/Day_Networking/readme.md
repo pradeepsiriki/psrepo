@@ -35,3 +35,5 @@ what is public ips: they are constant and wont change, we cant apply the cidr on
 
 Ports:
     - don't take any popular ports like 22, 8000, 8080 as they are already used by some popular apps
+
+Next, we will learn OSI Model
